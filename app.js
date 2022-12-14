@@ -13,6 +13,16 @@ app.get("/", (request, response) => {
   response.send([{ id: 1, name: "hello" }]);
 });
 
+app.post("/", (request, response) => {
+  const data = JSON.stringify(request.body);
+  console.log(data);
+  // fs.appendFile("users.json", "utf8", data, (error) => {
+  //   if (error) {
+  //     throw error;
+  //   }
+  // });
+});
+
 app.get("/files", (request, response) => {
   response.send(files);
 });
