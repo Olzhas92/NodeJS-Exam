@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const app = express();
+const files = require("./files");
 
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -13,7 +14,7 @@ app.get("/", (request, response) => {
 });
 
 app.get("/files", (request, response) => {
-  response.send([{ id: 1, name: "myfile" }]);
+  response.send(files);
 });
 
 app.use((request, response) => {
