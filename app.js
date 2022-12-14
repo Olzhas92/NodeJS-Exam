@@ -2,16 +2,18 @@ const express = require("express");
 const fs = require("fs");
 const app = express();
 
+const cors = require("cors");
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
 app.get("/", (request, response) => {
-  response.send("<h1>Hello World!</h1>");
+  response.send([{ id: 1, name: "hello" }]);
 });
 
 app.get("/files", (request, response) => {
-  response.send("<h2>My Files</h2>");
+  response.send([{ id: 1, name: "myfile" }]);
 });
 
 app.use((request, response) => {
